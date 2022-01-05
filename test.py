@@ -1,4 +1,1 @@
-ns = [1,2,3]
-print(ns)
-
-print(ns)
+print(int(3/2))
