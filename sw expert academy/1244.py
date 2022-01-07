@@ -5,7 +5,7 @@
 이거 두번째 푸는데 왜케 안풀리냐...
 """
 max = -1
-visited = {}
+visited = set()
 
 
 def digit2int(digits) -> int:
@@ -17,29 +17,22 @@ def digit2int(digits) -> int:
 def check_all_case(n):
     global digits, max, visited
 
-    if n == 0:
+    if n <= 0:
         result = digit2int(digits)
         if result > max:
             max = result
         return
     else:
         for i in range(len(digits)):
-            for j in range(len(digits)):
-                temp = digits[i]
-                digits[i] = digits[j]
-                digits[j] = temp
+            for j in range(i+1,len(digits)):
+                digits[i], digits[j] = digits[j], digits[i]
 
-                if not visited.get((digit2int(digits), n)):
+                if not (digit2int(digits), n-1) in visited:
                     check_all_case(n-1)
-                    visited[(digits, n)] = True
+                    visited.add((digit2int(digits), n-1))
 
-
-                temp = digits[i]
-                digits[i] = digits[j]
-                digits[j] = temp
-
-
-
+                digits[i], digits[j] = digits[j], digits[i]
+        
 
 T = int(input())
 for t in range(T):
@@ -48,7 +41,7 @@ for t in range(T):
     digits = list(map(int, list(digits)))
     N = int(N)
     max = -1
-    visited = {}
+    visited = set()
     check_all_case(N)
     
     print(f'#{t+1} {max}')
