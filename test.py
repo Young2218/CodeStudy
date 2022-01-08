@@ -1,6 +1,3 @@
-sc = set([1,2,3])
+li = [5,6,7]
 
-for s in sc:
-    print(s)
-
-print(len(sc))
+print(li.index(5))
