@@ -1,3 +1,3 @@
-li = [5,6,7]
+a = set([i for i in range(10)])
 
-print(li.index(5))
+print(a)
