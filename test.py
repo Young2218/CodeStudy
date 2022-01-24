@@ -1,3 +1,5 @@
-a = set([i for i in range(10)])
+a = {1:11, 2:22}
 
-print(a)
+a[1] +=1
+
+print(a[1])

@@ -13,8 +13,6 @@ def getCord(n) -> tuple:
     y -= 1
     target -= y
     
-    
-
     while target != n:
         x += 1
         y -= 1
